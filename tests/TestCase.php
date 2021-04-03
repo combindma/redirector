@@ -2,9 +2,9 @@
 
 namespace Combindma\Redirector\Tests;
 
+use Combindma\Redirector\RedirectorServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Combindma\Redirector\RedirectorServiceProvider;
 
 class TestCase extends Orchestra
 {

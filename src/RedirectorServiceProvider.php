@@ -2,9 +2,9 @@
 
 namespace Combindma\Redirector;
 
+use Combindma\Redirector\Commands\RedirectorCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Combindma\Redirector\Commands\RedirectorCommand;
 
 class RedirectorServiceProvider extends PackageServiceProvider
 {
