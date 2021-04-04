@@ -2,6 +2,7 @@
 
 namespace Combindma\Redirector;
 
+use Combindma\Redirector\Commands\RedirectorCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

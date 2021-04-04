@@ -4,7 +4,6 @@ namespace Combindma\Redirector\Tests\Features;
 
 
 use Combindma\Redirector\Models\Redirect;
-use Combindma\Redirector\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RedirectTest extends TestCase

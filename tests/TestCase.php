@@ -2,14 +2,16 @@
 
 namespace Combindma\Redirector\Tests;
 
+
 use Combindma\Redirector\Http\Controllers\RedirectController;
 use Elegant\Sanitizer\Laravel\SanitizerServiceProvider;
 use Faker\Factory as Faker;
+
+use Combindma\Redirector\RedirectorServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Combindma\Redirector\RedirectorServiceProvider;
-use Spatie\MissingPageRedirector\MissingPageRedirectorServiceProvider;
+
 
 class TestCase extends Orchestra
 {
