@@ -12,8 +12,19 @@ You can install the package via composer:
 ```bash
 composer require combindma/redirector
 ```
+The package will automatically register itself.
 
-You can publish and run the migrations with:
+Next you must register the `Combindma\Redirector\RedirectsMissingPages`-middleware:
+```php
+//app/Http/Kernel.php
+
+protected $middleware = [
+       ...
+       \Combindma\Redirector\RedirectsMissingPages::class,
+    ],
+```
+
+You must publish and run the migrations with:
 
 ```bash
 php artisan vendor:publish --provider="Combindma\Redirector\RedirectorServiceProvider" --tag="redirector-migrations"
@@ -29,6 +40,30 @@ This is the contents of the published config file:
 
 ```php
 return [
+    /*
+     * This is the class responsible for providing the URLs which must be redirected.
+     * The only requirement for the redirector is that it needs to implement the
+     * `Spatie\MissingPageRedirector\Redirector\Redirector`-interface
+     */
+    'redirector' => \Combindma\Redirector\UrlsRedirector::class,
+
+    /*
+     * By default the package will only redirect 404s. If you want to redirect on other
+     * response codes, just add them to the array. Leave the array empty to redirect
+     * always no matter what the response code.
+     */
+    'redirect_status_codes' => [
+        \Symfony\Component\HttpFoundation\Response::HTTP_NOT_FOUND,
+    ],
+
+    /*
+     * When using the `ConfigurationRedirector` you can specify the redirects in this array.
+     * You can use Laravel's route parameters here.
+     */
+    'redirects' => [
+        //        '/non-existing-page' => '/existing-page',
+        //        '/old-blog/{url}' => '/new-blog/{url}',
+    ],
 ];
 ```
 
