@@ -18,7 +18,18 @@ class RedirectorServiceProvider extends PackageServiceProvider
             ->name('redirector')
             ->hasConfigFile('missing-page-redirector')
             ->hasViews()
-            ->hasTranslations()
-            ->hasMigration('create_redirects_table');
+            ->hasTranslations();
+    }
+
+    public function packageBooted()
+    {
+        if ($this->app->runningInConsole()) {
+            // Export the migration
+            if (! class_exists('CreateRedirectsTable')) {
+                $this->publishes([
+                    __DIR__ . '/../database/migrations/create_redirects_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_redirects_table.php'),
+                ], 'redirector-migrations');
+            }
+        }
     }
 }
