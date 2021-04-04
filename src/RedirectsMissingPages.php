@@ -3,7 +3,6 @@
 
 namespace Combindma\Redirector;
 
-
 use Closure;
 use Illuminate\Http\Request;
 use Spatie\MissingPageRedirector\MissingPageRouter;

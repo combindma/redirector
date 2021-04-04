@@ -3,7 +3,6 @@
 
 namespace Combindma\Redirector;
 
-
 use Combindma\Redirector\Models\Redirect;
 use Spatie\MissingPageRedirector\Redirector\Redirector;
 use Symfony\Component\HttpFoundation\Request;

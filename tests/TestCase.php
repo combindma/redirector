@@ -2,16 +2,14 @@
 
 namespace Combindma\Redirector\Tests;
 
-
 use Combindma\Redirector\Http\Controllers\RedirectController;
-use Elegant\Sanitizer\Laravel\SanitizerServiceProvider;
-use Faker\Factory as Faker;
-
 use Combindma\Redirector\RedirectorServiceProvider;
+use Elegant\Sanitizer\Laravel\SanitizerServiceProvider;
+
+use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
-
 
 class TestCase extends Orchestra
 {
@@ -24,7 +22,7 @@ class TestCase extends Orchestra
         $this->faker = Faker::create();
 
         Factory::guessFactoryNamesUsing(
-            fn(string $modelName) => 'Combindma\\Redirector\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Combindma\\Redirector\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
 
         //$this->withoutExceptionHandling();
@@ -34,7 +32,7 @@ class TestCase extends Orchestra
     {
         return [
             RedirectorServiceProvider::class,
-            SanitizerServiceProvider::class
+            SanitizerServiceProvider::class,
         ];
     }
 
@@ -49,7 +47,6 @@ class TestCase extends Orchestra
 
         include_once __DIR__ . '/../database/migrations/create_redirects_table.php.stub';
         (new \CreateRedirectsTable())->up();
-
     }
 
     protected function defineRoutes($router)

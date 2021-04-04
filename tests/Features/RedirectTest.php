@@ -2,7 +2,6 @@
 
 namespace Combindma\Redirector\Tests\Features;
 
-
 use Combindma\Redirector\Models\Redirect;
 use Combindma\Redirector\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -16,7 +15,7 @@ class RedirectTest extends TestCase
         return array_merge([
             'old_url' => strtolower($this->faker->url),
             'new_url' => strtolower($this->faker->url),
-            'status' => 302
+            'status' => 302,
         ], $data);
     }
 
