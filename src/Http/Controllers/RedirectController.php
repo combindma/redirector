@@ -11,13 +11,13 @@ class RedirectController extends Controller
     public function index()
     {
         $redirects = Redirect::all();
-        return view('redirector::admin.redirects.index', compact('redirects'));
+        return view('redirector::.index', compact('redirects'));
     }
 
     public function create()
     {
         $redirect = new Redirect();
-        return view('redirector::admin.redirects.create', compact('redirect'));
+        return view('redirector::.create', compact('redirect'));
     }
 
     public function store(RedirectRequest $request)
@@ -29,7 +29,7 @@ class RedirectController extends Controller
 
     public function edit(Redirect $redirect)
     {
-        return view('redirector::admin.redirects.edit', compact('redirect'));
+        return view('redirector::.edit', compact('redirect'));
     }
 
     public function update(RedirectRequest $request, Redirect $redirect)
