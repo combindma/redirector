@@ -4,7 +4,6 @@ namespace Combindma\Redirector;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Combindma\Redirector\Commands\RedirectorCommand;
 
 class RedirectorServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +16,8 @@ class RedirectorServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('redirector')
-            ->hasConfigFile()
+            ->hasConfigFile('missing-page-redirector')
             ->hasViews()
-            ->hasMigration('create_redirector_table')
-            ->hasCommand(RedirectorCommand::class);
+            ->hasMigration('create_redirector_table');
     }
 }
