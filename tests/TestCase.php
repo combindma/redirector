@@ -47,13 +47,6 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-
-        /*$app['config']->set('missing-page-redirector', [
-            'redirector' => \Combindma\Redirector\UrlsRedirector::class,
-            'redirect_status_codes' => \Symfony\Component\HttpFoundation\Response::HTTP_NOT_FOUND,
-            'redirects' => []
-        ]);*/
-
         include_once __DIR__ . '/../database/migrations/create_redirects_table.php.stub';
         (new \CreateRedirectsTable())->up();
 

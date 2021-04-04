@@ -31,7 +31,7 @@ php artisan vendor:publish --provider="Combindma\Redirector\RedirectorServicePro
 php artisan migrate
 ```
 
-You can publish the config file with:
+You must publish the config file with:
 ```bash
 php artisan vendor:publish --provider="Combindma\Redirector\RedirectorServiceProvider" --tag="redirector-config"
 ```

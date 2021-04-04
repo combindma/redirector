@@ -23,7 +23,7 @@ class RedirectController extends Controller
     public function store(RedirectRequest $request)
     {
         Redirect::create($request->validated());
-        flash(__('redirector::message.created'));
+        flash(__('redirector::messages.created'));
         return redirect()->route('redirector::redirects.index');
     }
 
@@ -35,14 +35,14 @@ class RedirectController extends Controller
     public function update(RedirectRequest $request, Redirect $redirect)
     {
         $redirect->update($request->validated());
-        flash(__('redirector::message.updated'));
+        flash(__('redirector::messages.updated'));
         return back();
     }
 
     public function destroy(Redirect $redirect)
     {
         $redirect->delete();
-        flash(__('redirector::message.deleted'));
+        flash(__('redirector::messages.deleted'));
         return back();
     }
 }
