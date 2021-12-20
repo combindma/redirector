@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Combindma\Redirector;
 
 use Closure;

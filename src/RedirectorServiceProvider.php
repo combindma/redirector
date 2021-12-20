@@ -2,6 +2,8 @@
 
 namespace Combindma\Redirector;
 
+use Combindma\Redirector\Http\Controllers\RedirectController;
+use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -9,27 +11,20 @@ class RedirectorServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
             ->name('redirector')
             ->hasConfigFile('missing-page-redirector')
             ->hasViews()
+            ->hasMigration('create_redirects_table')
             ->hasTranslations();
     }
 
-    public function packageBooted()
+    public function packageRegistered()
     {
-        if ($this->app->runningInConsole()) {
-            // Export the migration
-            if (! class_exists('CreateRedirectsTable')) {
-                $this->publishes([
-                    __DIR__ . '/../database/migrations/create_redirects_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_redirects_table.php'),
-                ], 'redirector-migrations');
-            }
-        }
+        Route::macro('redirector', function (string $baseUrl = 'admin') {
+            Route::group(['prefix' => $baseUrl, 'as' => 'redirector::'], function () {
+                Route::resource('/redirects', RedirectController::class)->except(['show']);
+            });
+        });
     }
 }

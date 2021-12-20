@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Combindma\Redirector;
 
 use Combindma\Redirector\Models\Redirect;

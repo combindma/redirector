@@ -12,6 +12,7 @@ You can install the package via composer:
 ```bash
 composer require combindma/redirector
 ```
+
 The package will automatically register itself.
 
 Next you must register the `Combindma\Redirector\RedirectsMissingPages`-middleware:
@@ -27,13 +28,13 @@ protected $middleware = [
 You must publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Combindma\Redirector\RedirectorServiceProvider" --tag="redirector-migrations"
+php artisan vendor:publish --tag="redirector-migrations"
 php artisan migrate
 ```
 
 You must publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Combindma\Redirector\RedirectorServiceProvider" --tag="redirector-config"
+php artisan vendor:publish --tag="redirector-config"
 ```
 
 This is the contents of the published config file:
@@ -66,8 +67,6 @@ return [
     ],
 ];
 ```
-
-## Usage
 
 
 ## Testing
